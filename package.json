@@ -1,0 +1,20 @@
+{
+  "name": "dingtalk-robot-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_DEBUG= nodemon --harmony"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "koa": "^2.5.0",
+    "node-schedule": "^1.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
