@@ -4,6 +4,6 @@ const WeatherSend = require("./weather")
 
 
 module.exports = function dingTalkMessage () {
-    schedule.scheduleStyle("0 27 16 * * 0-7", jSend)
-    // schedule.scheduleStyle("0 30 8 * * 0-7", WeatherSend)
+    schedule.scheduleStyle("0 10 15 * * 0-7", jSend)
+    schedule.scheduleStyle("0 17 11 * * 0-7", WeatherSend)
 }

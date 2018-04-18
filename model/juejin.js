@@ -1,4 +1,4 @@
-const config = require("../config/config.js")
+const config = require("../config/env.config.js")
 const http = require("../service/http.service.js")
 const dingSM = require("../controller/dingdingSend.js")
 
@@ -20,7 +20,8 @@ module.exports = function JjSend() {
             jLink.push(ji)
         }
         jMessage.feedCard.links = jLink;
-    }).then((data) => {
         dingSM.sendMessage("",jMessage)
+    }).then((data) => {
+        
     })
 }
