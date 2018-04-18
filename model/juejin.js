@@ -8,6 +8,7 @@ module.exports = function JjSend() {
         "feedCard": {}
     };
     http.get(config.jueJinApi).then( data => { 
+        
         let jList = data.data.d.entrylist;
         let jLink = [];
         for (let i = 0; i < jList.length; i++) {

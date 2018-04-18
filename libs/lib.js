@@ -1,9 +1,11 @@
 const schedule = require("node-schedule");
 
-function scheduleStyle (dataString, callback) {
-    schedule.scheduleJob(dataString, function(){
-        callback()
-    });
+function scheduleStyle (scheduleMessage) {
+    
+    scheduleMessage.forEach ( (element, index) => {
+        schedule.scheduleJob(element.timer,  element.sendContent)
+    })
+    
 }
 
 module.exports = {
