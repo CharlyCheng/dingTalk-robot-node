@@ -1,18 +1,18 @@
 const schedule= require("../libs/lib.js")
-const jSend = require("./juejin")
+const JjSend = require("./juejin")
 const WeatherSend = require("./weather")
 
 const scheduleMessage = [
     {
-        "timer": "0 23 15 * * 0-7",
-        "sendContent": jSend
+        "timer": "0 06 14 * * 0-7",
+        "sendContent": JjSend.JjSend
     },
     {
-        "timer": "0 17 11 * * 0-7",
-        "sendContent": WeatherSend
+        "timer": "0 06 14 * * 0-7",
+        "sendContent": WeatherSend.WeatherSend
     }
 ]
 
-module.exports = function dingTalkMessage () {
+exports.dingTalkMessage = () => {
     schedule.scheduleStyle(scheduleMessage)
 }
