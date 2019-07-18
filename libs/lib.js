@@ -46,7 +46,7 @@ const handleMessage = (res, resType) => {
             let weekMessage = {
                 "msgtype": "text",
                 "text": {
-                    "content": "来自海外的声音：周五了，别忘记发周报!!!",
+                    "content": "来自二狗的声音：周五了，别忘记发周报!!!",
                     "mentioned_mobile_list":["@all"]
                 }
             }

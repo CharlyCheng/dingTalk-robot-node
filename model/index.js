@@ -12,8 +12,7 @@ const scheduleMessage = [
         "sendContent": WeatherSend.WeatherSend
     },
     {
-        // "timer": "0 10 08 * * 0-7",
-        "timer": "*/1 * * * *",
+        "timer": "0 30 11 * * 5",
         "sendContent": WeatherSend.WeekBookSend
     }
 ]
