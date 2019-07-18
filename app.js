@@ -7,7 +7,9 @@ const dingTalkMessage = require("./model/index.js");
 dingTalkMessage.dingTalkMessage()
 
 app.use(async ctx => {
-    ctx.body = "钉钉机器人正在服务"
+    ctx.body = "你的机器人正在服务"
 })
 
-app.listen(config.port)
+app.listen(config.port, function(){
+    console.log('http://localhost:3000')
+})

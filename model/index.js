@@ -4,12 +4,17 @@ const WeatherSend = require("./weather")
 
 const scheduleMessage = [
     {
-        "timer": "0 06 14 * * 0-7",
+        "timer": "0 10 09 * * 0-7",
         "sendContent": JjSend.JjSend
     },
     {
-        "timer": "0 06 14 * * 0-7",
+        "timer": "0 10 08 * * 0-7",
         "sendContent": WeatherSend.WeatherSend
+    },
+    {
+        // "timer": "0 10 08 * * 0-7",
+        "timer": "*/1 * * * *",
+        "sendContent": WeatherSend.WeekBookSend
     }
 ]
 

@@ -7,6 +7,14 @@ let WeatherSend = async () => {
     lib.handleMessage(res, "weatherType")
 }
 
+let WeekBookSend = async () => { 
+    let res = {
+        
+    }
+    lib.handleMessage(res, "weekType")
+}
+
 module.exports = {
-    WeatherSend 
+    WeatherSend,
+    WeekBookSend
 }

@@ -13,42 +13,44 @@ const scheduleStyle = (scheduleMessage) => {
 const handleMessage = (res, resType) => {
     switch (resType) {
         case "JjType":
-            var jMessage = {
-                "msgtype": "feedCard",
-                "feedCard": {}
+            let jMessage = {
+                "msgtype": "news",
+                "news": {}
             }
-            var jList = res.data.d.entrylist;
-            var jLink = [];
+            let jList = res.data.d.entrylist;
+            let jLink = [];
             for (let i = 0; i < jList.length; i++) {
-                var element = jList[i];
-                var ji = {}   
+                let element = jList[i];
+                let ji = {}   
                 ji.title = element.title
-                ji.messageURL = element.OriginalUrl
-                ji.picURL = element.imageUrl || "http://ding-1253141962.costj.myqcloud.com/fe.jpg"
+                ji.url = element.originalUrl
+                ji.picurl = element.screenshot || element.user.avatarLarge || "http://ding-1253141962.costj.myqcloud.com/fe.jpg"
                 jLink.push(ji)
             }
-            jMessage.feedCard.links = jLink;
+            jMessage.news.articles = jLink;
             dingSM.sendMessage("",jMessage)
             break;
         case "weatherType":
-            var jMessage = {
+            let wMessage = {
                 "msgtype": "markdown",
-                "markdown": {},
-                "at": {
-                    "atMobiles": [
-                        "156xxxx8827"
-                    ], 
-                    "isAtAll": false
-                }
+                "markdown": {}
             };
-            var jList = res.data.HeWeather5;
-            var jLink = [];
-            for (let i = 0; i < jList.length; i++) {
-                var element = jList[i]
-                jMessage.markdown.title = element.basic.city
-                jMessage.markdown.text = "#### "+ element.basic.city  +"天气\n > 温度"+ element.now.tmp + "度,"+ element.now.wind.dir + element.now.tmp +"级，空气良89，相对温度73%\n\n > ![screenshot](http://i01.lw.aliimg.com/media/lALPBbCc1ZhJGIvNAkzNBLA_1200_588.png)\n  > ###### "+ element.basic.update.loc +"发布 [风和天气为你服务](http://www.thinkpage.cn/) "
-            }       
-            dingSM.sendMessage("",jMessage)
+            let wList = res.data.HeWeather5;
+            for (let i = 0; i < wList.length; i++) {
+                let element = wList[i]
+                wMessage.markdown.content = `##### ${element.basic.city}天气\n${element.now.cond.txt}，${element.now.tmp}度，${element.now.wind.dir}${element.now.wind.sc}级，空气良89\n\n友情提示：🚴骑车步行的小伙伴，注意天气奥\n\n###### ${element.basic.update.loc}`
+            }
+            dingSM.sendMessage("",wMessage)
+            break;
+        case "weekType":
+            let weekMessage = {
+                "msgtype": "text",
+                "text": {
+                    "content": "来自海外的声音：周五了，别忘记发周报!!!",
+                    "mentioned_mobile_list":["@all"]
+                }
+            }
+            dingSM.sendMessage("",weekMessage)
             break;
         default:
             break;
